@@ -1,0 +1,15 @@
+{
+  "name": "enigma-discord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "Quentin (Quinta_)",
+  "license": "ISC"
+}
