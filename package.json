@@ -8,11 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node bot.js"
+    "start": "node bot.js"
   },
   "author": "Quentin (Quinta_)",
-  "license": "ISC",
-  "scripts": {
-    "start": "node bot.js"
-  }
+  "license": "ISC"
 }

@@ -1,40 +1,52 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const credentials = require('./credentials.js');
+const credentials = require('./credentials.json');
 const data = require('./embeds.js');
 
-const guildID   = '752859692413354054';
-const channelID = '754128613250564166';
-const startID = '184331142286147584';
+let channelId = null;
 
 var step  = 0;
 var ended = false;
+let started = false;
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', message => {
+	if(channelId !== null && message.channel.id !== channelId) return
+	if(message.author.bot) return
 
-	if(message.author.bot) return;
-
-	if(message.author.id === startID && message.content === 'startenigma') {
-		client.guilds.fetch(guildID).then(guild => {
-			let chan = guild.channels.resolve(channelID);
-			chan.send(data.embeds[step]);
-		});
+	// If startenigma, then start the session
+	if(!started && message.content === 'startenigma') {
+		channelId = message.channel.id
+		message.channel.send(data.embeds[step]).then(m => started = true)
+		return message.delete()
 	}
 
-	if(!ended && message.channel.id === channelID && message.content.toLowerCase() === data.answers[step] ) {
+	if(!ended && step === 9) { // Heure
+		let formatter = new Intl.DateTimeFormat('fr-FR', { timeZone: "Asia/Tokyo", hour: 'numeric', minute: '2-digit' });   
+		let jp = formatter.format(new Date());
+		if(message.content.toLowerCase() === jp.split(' ')[0])
+			message.channel.send(data.embeds[++step]).then(() => {
+				if(step === data.embeds.length) ended = true;
+			});
+		else message.delete()
+		return
+	}
+
+	// If good answer, send next step, if end set ended to true
+	if(!ended && message.content.toLowerCase() === data.answers[step] ) {
 		message.channel.send(data.embeds[++step]).then(msg => {
 			if(step === data.embeds.length) ended = true;
 		});
-		return;
+		return
 	}
 
-	if(!ended && message.channel.id === channelID && message.content.toLowerCase() !== data.answers[step]) {
-		message.delete();
+	// Delete message if ont right answer
+	if(!ended && message.content.toLowerCase() !== data.answers[step]) {
+		return message.delete()
 	}
 
 });
