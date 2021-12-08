@@ -11,5 +11,8 @@
     "test": "node bot.js"
   },
   "author": "Quentin (Quinta_)",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "start": "node bot.js"
+  }
 }

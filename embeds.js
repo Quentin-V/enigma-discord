@@ -2,13 +2,14 @@ const Discord = require('discord.js');
 
 var data = {
 	embeds: [],
-	answers: ['paris', 'souvent cachée', 'new york city', 'give your blood', 'dubnium', 'chicoutimi', '11e9a949ab811e7357ec1a75e50d88f4445af2de3d482490b7d8d4f309f4cb48', 'enigma', 'dream', 'lunaire', 'discomfort', '0192840721', 'cacahuette']
+	answers: [/*'paris', 'souvent cachée', 'new york city', 'give your blood', 'dubnium', 'chicoutimi', '11e9a949ab811e7357ec1a75e50d88f4445af2de3d482490b7d8d4f309f4cb48',*/ 'enigma', 'dream', 'lunaire', 'discomfort', '0192840721', 'cacahuette']
 };
 
 const embedColor1 = '#0099ff';
 const embedColor2 = '#ff0000';
 const embedColor3 = '#ffffff';
 
+/*
 //EMBED 1 (Paris)
 data.embeds.push(createEmbed(embedColor1, 'Bienvenue dans enigma,\nVous allez devoir résoudre des énigmes pour arriver à me battre, mais bon, mes prédictions affirment que vous avez 99,47% de chances d\'échouer...\nPour commencer, on va faire simple, lorsque quelqu\'un pense avoir la réponse d\'une énigme, il suffit de l\'écrire dans ce channel.\nPour votre information, la casse de la réponse n\'a pas d\'importance, cela veut dire que les réponses que vous donnez peuvent être écrites TOUT EN MAJUSCULE comme tout en minuscule ou UnE lEtTrE sUr DeUx, ça ne changera rien.\nPour ne pas encombrer le channel, si vous écrivez une mauvaise réponse, le message sera supprimé automatiquement (normalement).', 'Quel est la capitale de la France ?'));
 
@@ -32,7 +33,7 @@ data.embeds.push(createEmbed(embedColor2, 'QUOI !! :rage: Impossible, j\'avais u
 
 //EMBED 8 (enigma)
 data.embeds.push(createEmbed(embedColor2, 'Mhhhh, ce n\'était que la puissance la plus faible de mon nouveau processeur, je vais essayer d\'augmenter un peu la puissance.', 'Cette énigme devrait durer un peu plus longtemps.', 'dots_and_other.png'));
-
+*/
 //EMBED 9 (dream)
 data.embeds.push(createEmbed(embedColor2, 'Haha, la réponse c\'était mon nom, impossible d\'y penser à l\'avance. Mais le problème c\'est que la réponse a été trouvée. Je vais essayer d\'augmenter réellement la difficulté de celle-ci', 'Voici une vieille photo', 'FUUKK.jpg'));
 

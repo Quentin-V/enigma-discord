@@ -6,7 +6,7 @@ const data = require('./embeds.js');
 
 const guildID   = '752859692413354054';
 const channelID = '754128613250564166';
-const startedID = '184331142286147584';
+const startID = '184331142286147584';
 
 var step  = 0;
 var ended = false;
@@ -19,7 +19,7 @@ client.on('message', message => {
 
 	if(message.author.bot) return;
 
-	if(message.author.id === startedID && message.content === 'startenigma') {
+	if(message.author.id === startID && message.content === 'startenigma') {
 		client.guilds.fetch(guildID).then(guild => {
 			let chan = guild.channels.resolve(channelID);
 			chan.send(data.embeds[step]);
